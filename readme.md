@@ -1,10 +1,10 @@
-# DevOps Internship Assignment – NGINX Reverse Proxy + Docker Compose
+## DevOps Internship Assignment – NGINX Reverse Proxy + Docker Compose
 
 This project demonstrates a production-style setup where two backend services—one in Go and one in Python (Flask)—are deployed using Docker Compose and routed via a centralized NGINX reverse proxy. All services are accessible through a single port using path-based routing (`/service1`, `/service2`).
 
 ---
 
-## Project Structure
+### Project Structure
 
 ```
 .
@@ -26,9 +26,9 @@ This project demonstrates a production-style setup where two backend services—
 
 ---
 
-## Services Overview
+### Services Overview
 
-### Service 1 – Go (Golang)
+#### Service 1 – Go (Golang)
 
 * Runs on port `8001` inside its container
 * Endpoints:
@@ -36,7 +36,7 @@ This project demonstrates a production-style setup where two backend services—
   * `GET /service1/ping` → `{"status": "ok", "service": "1"}`
   * `GET /service1/hello` → `{"message": "Hello from Service 1"}`
 
-### Service 2 – Python (Flask)
+#### Service 2 – Python (Flask)
 
 * Runs on port `8002` using `uv run app.py`
 * Endpoints:
@@ -44,7 +44,7 @@ This project demonstrates a production-style setup where two backend services—
   * `GET /service2/ping` → `{"status": "ok", "service": "2"}`
   * `GET /service2/hello` → `{"message": "Hello from Service 2"}`
 
-### NGINX – Reverse Proxy
+#### NGINX – Reverse Proxy
 
 * Exposes the unified entrypoint: `http://<EC2-IP>:8080`
 * Routes requests to:
@@ -56,7 +56,7 @@ This project demonstrates a production-style setup where two backend services—
 
 ---
 
-## How to Run
+### How to Run
 
 Ensure Docker and Docker Compose are installed. Then run:
 
@@ -72,7 +72,7 @@ This will:
 
 ---
 
-## Requirements Met
+### Requirements Met
 
 * Path-based routing via `/service1` and `/service2`
 * NGINX in a container, not on host
@@ -83,7 +83,7 @@ This will:
 
 ---
 
-## Health Check Testing
+### Health Check Testing
 
 You can verify services using:
 
@@ -96,7 +96,7 @@ Or open them in your browser. You should see valid JSON responses.
 
 ---
 
-## Challenges Faced
+### Challenges Faced
 
 * Go container required an updated base image for `go.mod` compatibility
 * Python's `.venv` setup broke builds until `uv` was properly integrated
@@ -106,7 +106,7 @@ Or open them in your browser. You should see valid JSON responses.
 
 ---
 
-## EC2 Hosting Notes
+### EC2 Hosting Notes
 
 * Deployed on Ubuntu EC2 Instance
 * Opened ports: `8080`, `8001`, `8002` in security group
@@ -115,7 +115,7 @@ Or open them in your browser. You should see valid JSON responses.
 
 ---
 
-## Loom Video (Demo Script Highlights)
+### Loom Video (Demo Script Highlights)
 
 The video includes:
 
@@ -128,7 +128,7 @@ The video includes:
 
 ---
 
-## Author
+### Author
 
 Vaishnavi Golhar
 DevOps & Cloud Enthusiast
