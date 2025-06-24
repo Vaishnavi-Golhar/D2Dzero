@@ -1,6 +1,6 @@
 ## DevOps Internship Assignment – NGINX Reverse Proxy + Docker Compose
 
-This project demonstrates a production-style setup where two backend services—one in Go and one in Python (Flask)—are deployed using Docker Compose and routed via a centralized NGINX reverse proxy. All services are accessible through a single port using path-based routing (`/service1`, `/service2`).
+This project demonstrates a production-style setup where two backend services—one in Go and one in Python —are deployed using Docker Compose and routed via a centralized NGINX reverse proxy. All services are accessible through a single port using path-based routing (`/service1`, `/service2`).
 
 ---
 
