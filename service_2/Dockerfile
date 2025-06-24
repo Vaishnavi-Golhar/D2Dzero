@@ -1,13 +1,21 @@
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 
-RUN pip install uv
+RUN apt update && apt install -y curl
+
+# Install uv
+RUN curl -Ls https://astral.sh/uv/install.sh | bash
+
+ENV PATH="/root/.local/bin:$PATH"
 
 COPY . .
 
-RUN uv pip install -r <(uv pip compile pyproject.toml)
+# Exclude .venv with .dockerignore before building
+RUN uv pip compile pyproject.toml -o requirements.txt
+RUN uv pip install --system -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 8002
 
-CMD ["python", "app.py"]
+CMD ["uv", "run", "app.py"]
+
